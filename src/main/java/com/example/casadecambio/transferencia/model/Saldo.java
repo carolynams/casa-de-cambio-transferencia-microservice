@@ -13,7 +13,6 @@ import static java.math.BigDecimal.ZERO;
 @Table(name = "SALDO")
 public class Saldo {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,5 +29,10 @@ public class Saldo {
     }
 
     public Saldo() {
+    }
+
+    public Saldo(String cpf, BigDecimal valor) {
+        this.cpf = cpf;
+        this.valor = valor;
     }
 }

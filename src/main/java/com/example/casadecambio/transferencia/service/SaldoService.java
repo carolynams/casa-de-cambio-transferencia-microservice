@@ -2,6 +2,7 @@ package com.example.casadecambio.transferencia.service;
 
 import com.example.casadecambio.transferencia.exceptions.DataIntegrityViolationException;
 import com.example.casadecambio.transferencia.model.Saldo;
+import com.example.casadecambio.transferencia.model.SaldoBuilder;
 import com.example.casadecambio.transferencia.model.Transferencia;
 import com.example.casadecambio.transferencia.repository.SaldoRepository;
 import com.example.casadecambio.transferencia.repository.TransferenciaRepository;
