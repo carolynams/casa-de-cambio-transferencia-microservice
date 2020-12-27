@@ -1,4 +1,4 @@
-package com.example.casadecambio.cadastro;
+package com.example.casadecambio.transferencia;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
