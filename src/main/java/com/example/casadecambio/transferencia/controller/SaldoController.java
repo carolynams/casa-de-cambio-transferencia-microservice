@@ -5,10 +5,7 @@ import com.example.casadecambio.transferencia.service.SaldoService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 
@@ -21,19 +18,19 @@ public class SaldoController {
 
     @PostMapping("/transferencia/{cpfOrigem}/{cpfDestino}/{valor}")
     @ApiOperation("Realiza a transferencia entre dois cpf e salva a operação")
-    private ResponseEntity<String> transferencia(@RequestParam String cpfOrigem, @RequestParam String cpfDestino, @RequestParam BigDecimal valor) {
+    private ResponseEntity<String> transferencia(@PathVariable String cpfOrigem, @PathVariable String cpfDestino, @PathVariable BigDecimal valor) {
         return ResponseEntity.ok().body(service.transferencia(cpfOrigem, cpfDestino, valor));
     }
 
     @PostMapping("/atualizar/{cpfOrigem}/{valor}")
     @ApiOperation("Salva um saldo e realiza a transferencia para o mesmo cpf")
-    private ResponseEntity<Saldo> atualizarSaldo(@RequestParam String cpfOrigem, @RequestParam BigDecimal valor) {
+    private ResponseEntity<Saldo> atualizarSaldo(@PathVariable String cpfOrigem, @PathVariable BigDecimal valor) {
         return ResponseEntity.ok().body(service.update(cpfOrigem, valor));
     }
 
     @PostMapping("/create/{cpf}")
     @ApiOperation("Cria uma conta de investimento com saldo 0")
-    private ResponseEntity<Saldo> create(@RequestParam String cpf) {
+    private ResponseEntity<Saldo> create(@PathVariable String cpf) {
         return ResponseEntity.ok().body(service.create(cpf));
     }
 }
