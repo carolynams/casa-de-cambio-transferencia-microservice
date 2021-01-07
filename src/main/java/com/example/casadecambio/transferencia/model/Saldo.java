@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static java.math.BigDecimal.ZERO;
 
@@ -25,7 +26,7 @@ public class Saldo {
 
     public Saldo(String cpf) {
         this.cpf = cpf;
-        this.valor = ZERO;
+        this.valor = ZERO.setScale(3, RoundingMode.HALF_UP);
     }
 
     public Saldo() {
@@ -33,6 +34,6 @@ public class Saldo {
 
     public Saldo(String cpf, BigDecimal valor) {
         this.cpf = cpf;
-        this.valor = valor;
+        this.valor = valor.setScale(3, RoundingMode.HALF_UP);
     }
 }

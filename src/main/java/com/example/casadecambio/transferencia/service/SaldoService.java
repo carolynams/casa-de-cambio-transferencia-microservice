@@ -71,4 +71,8 @@ public class SaldoService {
             throw new DataIntegrityViolationException(SALDO_INSUFICIENTE);
         }
     }
+
+    public Saldo getSaldo(String cpf){
+        return repository.findByCpf(cpf);
+    }
 }
